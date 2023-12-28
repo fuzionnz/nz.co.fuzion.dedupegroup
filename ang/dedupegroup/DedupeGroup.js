@@ -10,7 +10,7 @@
         resolve: {
           dedupeConfig: function(crmApi) {
             return crmApi('Setting', 'getvalue', { name: 'dedupegroup' })
-            .then(r => JSON.parse(r.result), e => alert('Error fetching config.'));
+            .then(r => JSON.parse(r.result), e => ({ 'group': '', 'rule': '' }));
           },
           groupList: function(crmApi) {
             return crmApi('Group', 'get', {
@@ -18,7 +18,7 @@
               "return": ["id", "title"],
               'options' : { limit: 0 }
             })
-            .then(r => r.values, e => alert('Error fetching config.'));
+            .then(r => r.values, e => console.error('Group not set.'));
           },
           dedupeRuleList: function(crmApi) {
             return crmApi('RuleGroup', 'get', {
@@ -27,7 +27,7 @@
               "return": ["id", "title"],
               'options' : { limit: 0 }
             })
-            .then(r => r.values, e => alert('Error fetching config.'));
+            .then(r => r.values, e => console.error('Rule not set.'));
           }
         }
       });
