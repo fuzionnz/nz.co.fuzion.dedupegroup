@@ -1,0 +1,6 @@
+{htxt id="group"}
+{ts}Select the group to fill with the duplicate contacts.{/ts}
+{/htxt}
+{htxt id="rule"}
+{ts}Select rule to use for finding the duplicate contacts.{/ts}
+{/htxt}
